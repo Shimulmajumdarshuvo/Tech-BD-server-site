@@ -76,7 +76,9 @@ run().catch(console.dir);
 
 
 
-
+app.get('/hero', (req, res) => {
+    res.send('Update running tech bd')
+})
 
 
 app.get('/', (req, res) => {
