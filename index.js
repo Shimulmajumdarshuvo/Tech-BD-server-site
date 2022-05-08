@@ -56,6 +56,12 @@ async function run() {
 
         });
 
+        //post 
+
+        app.post('/service', async (req, res) => {
+            const newService = req.body;
+        })
+
         //delete
 
         app.delete('/service/:id', async (req, res) => {
