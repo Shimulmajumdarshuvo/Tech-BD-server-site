@@ -60,7 +60,6 @@ async function run() {
 
         app.post('/service', async (req, res) => {
             const newService = req.body;
-
             const result = await serviceCollection.insertOne(newService);
             res.send(result);
         })
@@ -73,6 +72,19 @@ async function run() {
             const result = await serviceCollection.deleteOne(query);
             res.send(result);
         })
+
+        app.get('/myItems', async (req, res) => {
+            const email = req.query.email;
+
+            const query = { email: email };
+            const cursor = serviceCollection.find(query);
+            const services = await cursor.toArray();
+            res.send(services);
+
+        })
+
+
+
 
     }
     finally {
