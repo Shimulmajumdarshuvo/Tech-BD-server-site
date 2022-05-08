@@ -75,7 +75,7 @@ async function run() {
 
         app.get('/myItems', async (req, res) => {
             const email = req.query.email;
-
+            console.log(email);
             const query = { email: email };
             const cursor = serviceCollection.find(query);
             const services = await cursor.toArray();
